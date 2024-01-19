@@ -37,6 +37,10 @@ public class MainActivity2 extends AppCompatActivity {
             Intent i = new Intent(getApplicationContext(), MainActivity2.class);
             startActivity(i);
             return true;
+        }else if (itemId == R.id.item3) {
+            Intent i = new Intent(getApplicationContext(), MainActivityConsulta.class);
+            startActivity(i);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }

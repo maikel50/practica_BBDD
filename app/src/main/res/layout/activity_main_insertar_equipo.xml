@@ -5,18 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1.7"
+        android:layout_weight="1.4"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="#00B8D4"
             android:minHeight="?attr/actionBarSize"
             android:theme="?attr/actionBarTheme" />
@@ -29,31 +29,38 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editNombre"
+            android:id="@+id/editTextText5"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:ems="10"
-            android:hint="Introduzca el Nombre del Equipo"
-            android:inputType="textPersonName" />
+            android:hint="NOMBRE EQUIPO"
+            android:inputType="text" />
 
         <EditText
-            android:id="@+id/editCiudad"
+            android:id="@+id/editTextText3"
             android:layout_width="match_parent"
-            android:layout_height="57dp"
-            android:layout_weight="0"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
             android:ems="10"
-            android:hint="Introduzca el nombre del Ciudad"
+            android:hint="CIUDAD"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editTextText4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:ems="10"
+            android:hint="PUNTOS ACUMULADO"
             android:inputType="text" />
 
         <Button
-            android:id="@+id/btnBuscar"
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:onClick="buscarOperas"
-            android:text="Buscar" />
-
+            android:text="INSERTAR" />
     </LinearLayout>
 
     <LinearLayout
@@ -62,13 +69,15 @@
         android:layout_weight="1"
         android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/txtValor"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scrollbars="vertical"
-            android:text="" />
-    </LinearLayout>
+        <View
+            android:id="@+id/view"
+            android:layout_width="match_parent"
+            android:layout_height="5sp" />
 
+        <ListView
+            android:id="@+id/lstListaModif"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 
 </LinearLayout>
