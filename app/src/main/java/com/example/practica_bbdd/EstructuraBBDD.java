@@ -5,7 +5,7 @@ import android.provider.BaseColumns;
 public class EstructuraBBDD {
     public static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE IF NOT EXISTS " + EstructuraPartidos.TABLE_NAME_EQUIPO
-                    + "(" +EstructuraPartidos._ID +" integer PRIMARY KEY"
+                    + "(" +EstructuraPartidos._ID +" integer PRIMARY KEY, "
                     + EstructuraPartidos.COLUMN_NAME_EQUIPO +" text, "
                     + EstructuraPartidos.COLUMN_NAME_CIUDAD + " text, "
                     + EstructuraPartidos.COLUMN_PUNTOS + " integer, "
@@ -23,4 +23,5 @@ public class EstructuraBBDD {
         public static final String COLUMN_FOTO_EQUIPO = "foto";
 
     }
+
 }

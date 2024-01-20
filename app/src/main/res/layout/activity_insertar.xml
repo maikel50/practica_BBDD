@@ -5,57 +5,63 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivityConsulta">
+    tools:context=".InsertarActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="0.5"
         android:orientation="vertical">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar3"
+        <EditText
+            android:id="@+id/txtEquipo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme" />
+            android:layout_weight="0.5"
+            android:ems="10"
+            android:hint="Nombre Equipo"
+            android:inputType="text" />
 
         <EditText
-            android:id="@+id/buscarNombre"
+            android:id="@+id/txtCiudad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.1"
-            android:ems="10"
-            android:inputType="text"
-            android:text="Nombre" />
+            android:layout_weight="0.5"
+            android:ems="20"
+            android:hint="Nombre Ciudad"
+            android:inputType="text" />
 
         <EditText
-            android:id="@+id/buscarCiudad"
+            android:id="@+id/txtPuntos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.1"
+            android:layout_weight="0.5"
             android:ems="10"
-            android:inputType="text"
-            android:text="Ciudad" />
+            android:hint="Puntos"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/txtFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:ems="10"
+            android:hint="Foto"
+            android:inputType="text" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="0.5"
+        android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnBuscarEquipo"
-            android:layout_width="match_parent"
+            android:id="@+id/btnInsertar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="BUSCAR" />
+            android:layout_gravity="center"
+            android:text="INSERTAR" />
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView" />
-    </LinearLayout>
 </LinearLayout>
