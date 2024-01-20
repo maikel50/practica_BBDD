@@ -13,10 +13,7 @@
         android:theme="@style/Theme.Practica_BBDD"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivityConsulta"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity2"
+            android:name=".InsertarActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

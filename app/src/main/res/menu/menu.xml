@@ -5,19 +5,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:title="INSERTAR EQUIPO" />
-    <item
-        android:id="@+id/item2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="INSERTAR PARTIDO" />
-    <item
-        android:id="@+id/item3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="CONSULTA EQUIPO" />
-    <item
-        android:id="@+id/item4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:title="CLASIFICACION" />
+
+
 </menu>
