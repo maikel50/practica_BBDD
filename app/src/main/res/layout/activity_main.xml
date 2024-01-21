@@ -28,6 +28,28 @@
         android:layout_weight="1.7"
         android:orientation="vertical">
 
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar por Nombre" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/txtBuscarNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Buscar por Ciudad" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/txtBuscarCiudad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/listaEquipos"
             android:layout_width="match_parent"
