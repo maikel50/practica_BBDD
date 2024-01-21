@@ -14,25 +14,26 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-public class ConsultaPartidosActivity extends AppCompatActivity {
-    RecyclerView listaPartidos;
-    ArrayList<Partidos> listaArrayPartidos;
-    ListaPartidos adapter;
+public class ClasificacionActivity extends AppCompatActivity {
+    RecyclerView clasificacion;
+    ArrayList<Equipo> listaArrayEquipos;
+    ListaEquipoClasificacion adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consulta_partidos);
-
-        listaPartidos = findViewById(R.id.listaPartidos);
-        listaPartidos.setLayoutManager(new LinearLayoutManager(this));
-
-        DbPartidos dbPartidos = new DbPartidos(ConsultaPartidosActivity.this);
-        listaArrayPartidos = new ArrayList<>();
-        adapter = new ListaPartidos(dbPartidos.mostrarPartidos());
-        listaPartidos.setAdapter(adapter);
-
-        Toolbar toolbar = findViewById(R.id.toolbar4);
+        setContentView(R.layout.activity_clasificacion);
+        Toolbar toolbar = findViewById(R.id.toolbar6);
         setSupportActionBar(toolbar);
+
+        clasificacion = findViewById(R.id.listaClasificacion);
+        clasificacion.setLayoutManager(new LinearLayoutManager(this));
+
+        DbEquipos dbEquipos = new DbEquipos(ClasificacionActivity.this);
+        listaArrayEquipos = new ArrayList<>();
+
+        adapter = new ListaEquipoClasificacion(dbEquipos.mostrarEquipo2());
+        clasificacion.setAdapter(adapter);
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

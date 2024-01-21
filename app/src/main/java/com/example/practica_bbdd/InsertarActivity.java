@@ -24,7 +24,7 @@ public class InsertarActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insertar);
 
-        Toolbar toolbar = findViewById(R.id.toolbar2);
+        Toolbar toolbar = findViewById(R.id.toolbar5);
         setSupportActionBar(toolbar);
 
         txtNombre_Equipo = findViewById(R.id.txtEquipo);
@@ -40,10 +40,10 @@ public class InsertarActivity extends AppCompatActivity {
                 long id =  dbEquipos.insertaEquipo(txtNombre_Equipo.getText().toString(),txtNombreCiudad.getText().toString(), Integer.parseInt(numberPuntos.getText().toString()),txtFoto.getText().toString());
                 if(id>0){
                     Toast.makeText(InsertarActivity.this,"Insertado Correctamente",Toast.LENGTH_LONG).show();
-                    limpiar();
+
                 }else{
                     Toast.makeText(InsertarActivity.this,"Error al insertar",Toast.LENGTH_LONG).show();
-                    limpiar();
+
                 }
             }
         });
@@ -75,13 +75,12 @@ public class InsertarActivity extends AppCompatActivity {
             startActivity(i);
             return true;
         }
+        else if(itemId == R.id.item4){
+            Intent i = new Intent(getApplicationContext(), ClasificacionActivity.class);
+            startActivity(i);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
-    private void limpiar(){
-        txtNombre_Equipo.setText("");
-        txtNombreCiudad.setText("");
-        numberPuntos.setText("");
-        txtFoto.setText("");
 
-    }
 }

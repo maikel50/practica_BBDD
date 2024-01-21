@@ -59,4 +59,59 @@ public class DbPartidos extends SQLiteHelper {
         cursorPartidos.close();
         return listaPartidos;
     }
+    public Partidos verPartidos(int id){
+        SQLiteHelper dbHelper = new SQLiteHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        Partidos partidos = null;
+        Cursor cursorPartidos = null;
+        cursorPartidos = db.rawQuery("SELECT * FROM " +TABLE_NAME_PARTIDOS + " WHERE _ID = " + id + " LIMIT 1",null);
+        if(cursorPartidos.moveToFirst()){
+
+            partidos = new Partidos();
+            partidos.setId(cursorPartidos.getInt(0));
+            partidos.setJornada(cursorPartidos.getInt(1));
+            partidos.setFecha(cursorPartidos.getInt(2));
+            partidos.setEquipo1(cursorPartidos.getString(3));
+            partidos.setEquipo2(cursorPartidos.getString(4));
+            partidos.setPtoEquipo1(cursorPartidos.getInt(5));
+            partidos.setPtoEquipo2(cursorPartidos.getInt(6));
+
+        }
+        cursorPartidos.close();
+        return partidos;
+    }
+    public boolean eliminarPartidos (int id){
+        boolean correcto = false;
+
+        SQLiteHelper dbHelper = new SQLiteHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        try{
+            db.execSQL("DELETE FROM "+ TABLE_NAME_PARTIDOS +" WHERE _id = '"+ id + "'");
+            correcto = true;
+        }catch(Exception e){
+            e.toString();
+            correcto = false;
+        }finally {
+            db.close();
+        }
+
+        return correcto;
+    }
+    public boolean editarPartido(int id,int Jornada,int fecha, String equipo1, String equipo2, int ptsEquipo1, int ptsEquipo2){
+        boolean correcto = false;
+        DbPartidos dbPartidos = new DbPartidos(context);
+        SQLiteDatabase db= dbPartidos.getWritableDatabase();
+        try{
+            db.execSQL("UPDATE " + TABLE_NAME_PARTIDOS + " SET jornada = '"+ Jornada + "', fecha = '"+ fecha + "',equipo1 = '"+ equipo1 + "',equipo2 = '"+ equipo2 + "',ptoEquipo1 = '"+ptsEquipo1  + "',ptoEquipo2 = '"+ ptsEquipo2 + "' WHERE _id ='" + id +"'");
+            correcto = true;
+
+        }catch(Exception e){
+            e.toString();
+        }finally{
+            db.close();
+        }
+        return correcto;
+    }
 }

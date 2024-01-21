@@ -104,6 +104,11 @@ public  class MainActivity extends AppCompatActivity implements  SearchView.OnQu
             startActivity(i);
             return true;
         }
+        else if(itemId == R.id.item4){
+            Intent i = new Intent(getApplicationContext(), ClasificacionActivity.class);
+            startActivity(i);
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 

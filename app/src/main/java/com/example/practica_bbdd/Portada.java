@@ -51,7 +51,7 @@ public class Portada extends AppCompatActivity {
     }
 
     public void verClasificacion(View view) {
-        Intent i = new Intent(Portada.this, Clasificacion.class);
+        Intent i = new Intent(Portada.this, ClasificacionActivity.class);
         startActivity(i);
     }
 

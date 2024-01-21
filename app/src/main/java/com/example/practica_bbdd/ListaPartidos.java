@@ -1,5 +1,7 @@
 package com.example.practica_bbdd;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -48,6 +50,16 @@ public class ListaPartidos extends RecyclerView.Adapter<ListaPartidos.PartidoVie
             txtEquipo2 = view.findViewById(R.id.txtEquipo2);
             txtPuntos1 = view.findViewById(R.id.txtPuntos1);
             txtPuntos2 = view.findViewById(R.id.txtPuntos2);
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context,VerPartidosActivity.class);
+                    intent.putExtra("ID",listaPartidos.get(getAdapterPosition()).getId());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 

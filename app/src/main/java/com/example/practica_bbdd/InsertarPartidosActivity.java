@@ -17,6 +17,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,7 +26,9 @@ public class InsertarPartidosActivity extends AppCompatActivity {
     EditText txtJornada,txtDate,txtPuntosEquipo1,txtPuntosEquipo2;
     Button btnInsertarPartido;
     Spinner equipo1,equipo2;
-
+    FloatingActionButton btnEliminar;
+    Partidos partidos;
+    int id = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +41,7 @@ public class InsertarPartidosActivity extends AppCompatActivity {
         txtPuntosEquipo2 = findViewById(R.id.txtPuntosEquipo2);
         btnInsertarPartido = findViewById(R.id.btnInsertarPartido);
 
+
         List<Equipo> listaEquipos = llenarEquipos();
         ArrayAdapter<Equipo> arrayAdapter = new ArrayAdapter<>(getApplicationContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, listaEquipos);
         equipo1.setAdapter(arrayAdapter);
@@ -44,6 +49,9 @@ public class InsertarPartidosActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar3);
         setSupportActionBar(toolbar);
+
+        final DbPartidos dbPartidos = new DbPartidos(InsertarPartidosActivity.this);
+
 
         btnInsertarPartido.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,15 +64,19 @@ public class InsertarPartidosActivity extends AppCompatActivity {
 
                 DbPartidos dbPartidos = new DbPartidos(InsertarPartidosActivity.this);
                 long id = dbPartidos.insertPartidos(Integer.parseInt(txtJornada.getText().toString()), Integer.parseInt(txtDate.getText().toString()),equipoSeleccionado1,equipoSeleccionado2,Integer.parseInt(txtPuntosEquipo1.getText().toString()), Integer.parseInt(txtPuntosEquipo2.getText().toString()) );
+
                 if(id>0){
                     Toast.makeText(InsertarPartidosActivity.this,"Insertado Correctamente",Toast.LENGTH_LONG).show();
-                    limpiar();
+
                 }else{
                     Toast.makeText(InsertarPartidosActivity.this,"Error al insertar",Toast.LENGTH_LONG).show();
-                    limpiar();
+
                 }
             }
         });
+
+
+
     }
     private List<Equipo> llenarEquipos(){
         List<Equipo> listaEquipo = new ArrayList<>();
@@ -82,13 +94,7 @@ public class InsertarPartidosActivity extends AppCompatActivity {
         dbEquipo.close();
         return listaEquipo;
     }
-    private void limpiar(){
-        txtJornada.setText("");
-        txtDate.setText("");
 
-        txtPuntosEquipo1.setText("");
-        txtPuntosEquipo2.setText("");
-    }
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu,menu);
@@ -112,6 +118,11 @@ public class InsertarPartidosActivity extends AppCompatActivity {
             return true;
         }else if(itemId == R.id.item3){
             Intent i = new Intent(getApplicationContext(), ConsultaPartidosActivity.class);
+            startActivity(i);
+            return true;
+        }
+        else if(itemId == R.id.item4){
+            Intent i = new Intent(getApplicationContext(), ClasificacionActivity.class);
             startActivity(i);
             return true;
         }
