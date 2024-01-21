@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtNJornada"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Jornada"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtFecha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Fecha"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtEquipo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Equipo1"
+            android:textColor="#DD2C00"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtEquipo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Equipo2"
+            android:textColor="#304FFE"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtPuntos1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Puntos 1 Equipo"
+            android:textColor="#DD2C00"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtPuntos2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Puntos 2 Equipo"
+            android:textColor="#304FFE"
+            android:textSize="16sp" />
+    </LinearLayout>
+</LinearLayout>

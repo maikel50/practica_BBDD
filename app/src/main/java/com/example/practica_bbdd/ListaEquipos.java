@@ -10,13 +10,19 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListaEquipos extends RecyclerView.Adapter<ListaEquipos.EquipoViewHolder> {
 
-ArrayList<Equipo>listaEquipos;
+    ArrayList<Equipo> listaEquipos;
+    ArrayList<Equipo> listaEquiposOriginal;
     public ListaEquipos(ArrayList<Equipo>listaEquipos){
         this.listaEquipos = listaEquipos;
+        listaEquiposOriginal = new ArrayList<Equipo>();
+        listaEquiposOriginal.addAll(listaEquipos);
     }
+
     @NonNull
     @Override
     public ListaEquipos.EquipoViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -26,10 +32,34 @@ ArrayList<Equipo>listaEquipos;
 
     @Override
     public void onBindViewHolder(@NonNull ListaEquipos.EquipoViewHolder holder, int position) {
-    holder.viewNombre_Equipo.setText(listaEquipos.get(position).getNombre_equipo());
-    holder.viewNombre_Ciudad.setText(listaEquipos.get(position).getNombre_ciudad());
-    holder.viewPuntos.setText(String.valueOf(listaEquipos.get(position).getPuntos()));
+        holder.viewNombre_Equipo.setText(listaEquipos.get(position).getNombre_equipo());
+        holder.viewNombre_Ciudad.setText(listaEquipos.get(position).getNombre_ciudad());
+        holder.viewPuntos.setText(String.valueOf(listaEquipos.get(position).getPuntos()));
 
+    }
+    public void filtradoNombre(String txtNombreEquipo){
+        int longitud = txtNombreEquipo.length();
+        if(longitud== 0){
+            listaEquipos.clear();
+            listaEquipos.addAll(listaEquiposOriginal);
+        }else{
+            List<Equipo> collection = listaEquipos.stream().filter(i -> i.getNombre_equipo().toLowerCase().contains(txtNombreEquipo.toLowerCase())).collect(Collectors.toList());
+            listaEquipos.clear();
+            listaEquipos.addAll(collection);
+        }
+        notifyDataSetChanged();
+    }
+    public void filtradoCiudad(String txtBuscarCiudad){
+        int longitud = txtBuscarCiudad.length();
+        if(longitud== 0){
+            listaEquipos.clear();
+            listaEquipos.addAll(listaEquiposOriginal);
+        }else{
+            List<Equipo> collection = listaEquipos.stream().filter(i -> i.getNombre_ciudad().toLowerCase().contains(txtBuscarCiudad.toLowerCase())).collect(Collectors.toList());
+            listaEquipos.clear();
+            listaEquipos.addAll(collection);
+        }
+        notifyDataSetChanged();
     }
 
     @Override

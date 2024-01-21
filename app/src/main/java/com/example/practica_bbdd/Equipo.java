@@ -46,4 +46,7 @@ public class Equipo {
     public void setFoto(String foto) {
         this.foto = foto;
     }
+    public String toString(){
+        return  nombre_equipo;
+    }
 }
