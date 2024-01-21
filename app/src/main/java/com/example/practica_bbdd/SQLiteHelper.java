@@ -11,103 +11,30 @@ import android.provider.BaseColumns;
 import androidx.annotation.Nullable;
 
 public class SQLiteHelper extends SQLiteOpenHelper {
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "bdEquipo.db";
-    public static final String TABLE_NAME_EQUIPO = "equipo";
+    protected static final String TABLE_NAME_EQUIPO = "equipo";
+    public static final String TABLE_NAME_PARTIDOS = "partido";
     public SQLiteHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
+
     }
+
 
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(EstructuraBBDD.SQL_CREATE_ENTRIES);
-
+        db.execSQL(EstructuraBBDD.SQL_CREATE_ENTRIES_PARTIDOS);
     }
-
+    @Override
+    public void onConfigure(SQLiteDatabase db) {
+        db.setForeignKeyConstraintsEnabled(true);
+    }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL(EstructuraBBDD.SQL_DELETE_ENTRIES);
+        db.execSQL(EstructuraBBDD.SQL_DELETE_ENTRIES2);
         onCreate(db);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //--------------------------------------------------------
-    public Cursor consultarEquiposPorNombre(String nombreEquipo) {
-        SQLiteDatabase db = getReadableDatabase();
-
-        String[] columns = {
-                EstructuraBBDD.EstructuraPartidos.COLUMN_NAME_EQUIPO,
-                EstructuraBBDD.EstructuraPartidos.COLUMN_NAME_CIUDAD,
-                EstructuraBBDD.EstructuraPartidos.COLUMN_PUNTOS,
-                EstructuraBBDD.EstructuraPartidos.COLUMN_FOTO_EQUIPO
-        };
-
-        String selection = EstructuraBBDD.EstructuraPartidos.COLUMN_NAME_EQUIPO + " LIKE ?";
-        String[] selectionArgs = {"%" + nombreEquipo + "%"};
-
-        String groupBy = null;
-        String having = null;
-        String orderBy = EstructuraBBDD.EstructuraPartidos.COLUMN_PUNTOS;
-
-        return db.query(
-                EstructuraBBDD.EstructuraPartidos.TABLE_NAME_EQUIPO,
-                columns,
-                selection,
-                selectionArgs,
-                groupBy,
-                having,
-                orderBy
-        );
-    }
-
-    public Cursor consultarEquiposPorCiudad(String nombreCiudad) {
-        SQLiteDatabase db = getReadableDatabase();
-
-        String[] columns = {
-                EstructuraBBDD.EstructuraPartidos.COLUMN_NAME_EQUIPO,
-                EstructuraBBDD.EstructuraPartidos.COLUMN_NAME_CIUDAD,
-                EstructuraBBDD.EstructuraPartidos.COLUMN_PUNTOS,
-                EstructuraBBDD.EstructuraPartidos.COLUMN_FOTO_EQUIPO
-        };
-
-        String selection = EstructuraBBDD.EstructuraPartidos.COLUMN_NAME_CIUDAD + " LIKE ?";
-        String[] selectionArgs = {"%" + nombreCiudad + "%"};
-
-        String groupBy = null;
-        String having = null;
-        String orderBy = EstructuraBBDD.EstructuraPartidos.COLUMN_PUNTOS;
-
-        return db.query(
-                EstructuraBBDD.EstructuraPartidos.TABLE_NAME_EQUIPO,
-                columns,
-                selection,
-                selectionArgs,
-                groupBy,
-                having,
-                orderBy
-        );
     }
 }

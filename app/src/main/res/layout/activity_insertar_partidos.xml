@@ -14,7 +14,7 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar2"
+            android:id="@+id/toolbar3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="?attr/colorPrimary"
@@ -29,55 +29,67 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/txtEquipo"
+            android:id="@+id/txtJornada"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:ems="10"
-            android:hint="Nombre Equipo"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/txtCiudad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:ems="20"
-            android:hint="Nombre Ciudad"
-            android:inputType="text" />
-
-        <EditText
-            android:id="@+id/txtPuntos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.5"
-            android:ems="10"
-            android:hint="Puntos"
+            android:hint="Nº Jornada"
             android:inputType="number" />
 
         <EditText
-            android:id="@+id/txtFoto"
+            android:id="@+id/txtDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:ems="10"
-            android:hint="Foto"
-            android:inputType="text" />
+            android:hint="Fecha Jornada"
+            android:inputType="number" />
+
+        <Spinner
+            android:id="@+id/listaEquipo1"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_weight="0.5" />
+
+        <Spinner
+            android:id="@+id/listaEquipo2"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:layout_weight="0.5" />
+
+        <EditText
+            android:id="@+id/txtPuntosEquipo1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:ems="10"
+            android:hint="Puntos Equipo1"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/txtPuntosEquipo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:ems="10"
+            android:hint="PuntosEquipo2"
+            android:inputType="number" />
+
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.3"
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/btnInsertar"
-            android:layout_width="match_parent"
+            android:id="@+id/btnInsertarPartido"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="INSERTAR" />
-
     </LinearLayout>
 
 </LinearLayout>

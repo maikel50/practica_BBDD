@@ -17,7 +17,7 @@ public class DbEquipos extends SQLiteHelper {
         super(context);
         this.context=context;
     }
-    public long insertaContacto(String nombreEquipo, String nombreCiudad, int puntos, String foto) {
+    public long insertaEquipo(String nombreEquipo, String nombreCiudad, int puntos, String foto) {
         long id = 0;
         try {
             SQLiteHelper dbHelper = new SQLiteHelper(context);
@@ -34,7 +34,7 @@ public class DbEquipos extends SQLiteHelper {
         }
         return id;
     }
-    public ArrayList<Equipo>mostrarEquipo(){
+    public ArrayList<Equipo> mostrarEquipo(){
         SQLiteHelper dbHelper = new SQLiteHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ArrayList<Equipo> listaEquipos = new ArrayList<>();
@@ -54,5 +54,18 @@ public class DbEquipos extends SQLiteHelper {
         }
         cursorEquipo.close();
         return listaEquipos;
+    }
+    public Cursor mostrarEquipoDesplegable(){
+        try{
+            SQLiteDatabase bd = this.getReadableDatabase();
+            Cursor filas = bd.rawQuery("SELECT * FROM "+ TABLE_NAME_EQUIPO +"",null);
+            if(filas.moveToFirst()){
+                return filas;
+            }else{
+                return null;
+            }
+        }catch (Exception e){
+            return  null;
+        }
     }
 }

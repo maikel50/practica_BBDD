@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class ListaEquipos extends RecyclerView.Adapter<ListaEquipos.EquipoViewHolder> {
 
-ArrayList<Equipo>listaEquipos;
+    ArrayList<Equipo> listaEquipos;
     public ListaEquipos(ArrayList<Equipo>listaEquipos){
         this.listaEquipos = listaEquipos;
     }
@@ -26,9 +26,9 @@ ArrayList<Equipo>listaEquipos;
 
     @Override
     public void onBindViewHolder(@NonNull ListaEquipos.EquipoViewHolder holder, int position) {
-    holder.viewNombre_Equipo.setText(listaEquipos.get(position).getNombre_equipo());
-    holder.viewNombre_Ciudad.setText(listaEquipos.get(position).getNombre_ciudad());
-    holder.viewPuntos.setText(String.valueOf(listaEquipos.get(position).getPuntos()));
+        holder.viewNombre_Equipo.setText(listaEquipos.get(position).getNombre_equipo());
+        holder.viewNombre_Ciudad.setText(listaEquipos.get(position).getNombre_ciudad());
+        holder.viewPuntos.setText(String.valueOf(listaEquipos.get(position).getPuntos()));
 
     }
 

@@ -6,44 +6,34 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.ContentValues;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.text.method.ScrollingMovementMethod;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
-
-    RecyclerView listaEquipo;
-    ArrayList<Equipo> listaArrayEquipos;
-    ListaEquipos adapter;
+public class ConsultaPartidosActivity extends AppCompatActivity {
+    RecyclerView listaPartidos;
+    ArrayList<Partidos> listaArrayPartidos;
+    ListaPartidos adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_consulta_partidos);
 
-        listaEquipo = findViewById(R.id.listaEquipos);
-        listaEquipo.setLayoutManager(new LinearLayoutManager(this));
+        listaPartidos = findViewById(R.id.listaPartidos);
+        listaPartidos.setLayoutManager(new LinearLayoutManager(this));
 
-        DbEquipos dbEquipos = new DbEquipos(MainActivity.this);
-        listaArrayEquipos = new ArrayList<>();
-        adapter = new ListaEquipos(dbEquipos.mostrarEquipo());
-        listaEquipo.setAdapter(adapter);
+        DbPartidos dbPartidos = new DbPartidos(ConsultaPartidosActivity.this);
+        listaArrayPartidos = new ArrayList<>();
+        adapter = new ListaPartidos(dbPartidos.mostrarPartidos());
+        listaPartidos.setAdapter(adapter);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar4);
         setSupportActionBar(toolbar);
     }
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -73,5 +63,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }
